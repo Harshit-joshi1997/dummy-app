@@ -2,11 +2,18 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Mail, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -26,16 +33,31 @@ export default function Login() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-4 overflow-hidden">
+    <div className="min-h-screen w-342 flex items-center  justify-center overflow-hidden p-4 -mt-8 -ml-20">
+      {/* 🔹 Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      >
+        <source src="/background.mp4" type="video/mp4" />
+      </video>
+
+      {/* 🔹 Overlay for better readability */}
+      <div className="absolute inset-0 bg-black/50" />
+
+      {/* 🔹 Login Card */}
       <AnimatePresence>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -50 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="w-full max-w-md"
+          className="w-full max-w-md relative z-10"
         >
-          <Card className="shadow-lg">
+          <Card className="shadow-lg backdrop-blur-md bg-white/80 dark:bg-gray-900/80">
             <CardHeader className="space-y-1">
               <CardTitle className="text-2xl text-center">Welcome Back</CardTitle>
               <CardDescription className="text-center">
@@ -81,6 +103,7 @@ export default function Login() {
                   transition={{ duration: 0.3 }}
                 >
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                   <Link to="/dashboard">
                     <Button
                       type="submit"
                       className="w-full"
@@ -90,12 +113,17 @@ export default function Login() {
                         <motion.span
                           initial={{ rotate: 0 }}
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
                           className="mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full"
                         />
                       ) : null}
                       {isSubmitting ? "Signing In..." : "Sign In"}
                     </Button>
+                    </Link>
                   </motion.div>
                 </motion.div>
               </form>
@@ -112,3 +140,9 @@ export default function Login() {
     </div>
   );
 }
+
+
+
+
+
+
