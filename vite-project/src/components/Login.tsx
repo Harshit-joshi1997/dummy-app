@@ -42,11 +42,11 @@ export default function Login() {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
-        <source src="/background.mp4" type="video/mp4" />
+        <source src="/forest.mp4" type="video/mp4" />
       </video>
 
       {/* 🔹 Overlay for better readability */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-green/600" />
 
       {/* 🔹 Login Card */}
       <AnimatePresence>
@@ -57,10 +57,10 @@ export default function Login() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="w-full max-w-md relative z-10"
         >
-          <Card className="shadow-lg backdrop-blur-md bg-white/80 dark:bg-gray-900/80">
+          <Card className="shadow-lg backdrop-blur-md bg-blue/800 dark:bg-blue-900/80">
             <CardHeader className="space-y-1">
-              <CardTitle className="text-2xl text-center">Welcome Back</CardTitle>
-              <CardDescription className="text-center">
+              <CardTitle className="text-2xl text-center text-color-white-800 font-bold">Welcome Back</CardTitle>
+              <CardDescription className="text-center text-sm text-color-white-800">
                 Sign in to your account to continue
               </CardDescription>
             </CardHeader>

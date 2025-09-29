@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { Link } from "react-router-dom";
-
 import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
 
 import {
@@ -14,6 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+
 
 const components: { title: string; to: string; description: string }[] = [
   {
@@ -55,13 +55,13 @@ const components: { title: string; to: string; description: string }[] = [
 
 export function Navbar() {
   return (
-    <NavigationMenu viewport={false}>
-      <NavigationMenuList>
-        <NavigationMenuItem>
+    <NavigationMenu viewport={false} className="py-4 bg-gradient-to-b from-blue-800 to-blue-400 fixed top-0 left-0 right-0 z-50 shadow-md w-full px-96">
+      <NavigationMenuList >
+        <NavigationMenuItem className="mr-4">
           <NavigationMenuTrigger>Home</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
+              <li className="row-span-3 mx-100 hidden md:block">
                 <NavigationMenuLink asChild>
                   <Link
                     className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-linear-to-b p-6 no-underline outline-hidden select-none focus:shadow-md"
@@ -87,8 +87,8 @@ export function Navbar() {
               </ListItem>
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
+        </NavigationMenuItem >
+        <NavigationMenuItem className="mr-4">
           <NavigationMenuTrigger>Components</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
@@ -104,12 +104,12 @@ export function Navbar() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="mr-4">
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link to="/docs">Docs</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="mr-4">
           <NavigationMenuTrigger>List</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[300px] gap-4">
@@ -142,7 +142,7 @@ export function Navbar() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="mr-4">
           <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[200px] gap-4">
@@ -209,5 +209,6 @@ function ListItem({
         </Link>
       </NavigationMenuLink>
     </li>
+    
   )
 }
