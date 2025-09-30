@@ -55,7 +55,7 @@ const components: { title: string; to: string; description: string }[] = [
 
 export function Navbar() {
   return (
-    <NavigationMenu viewport={false} className="py-4 bg-gradient-to-b from-blue-800 to-blue-400 fixed top-0 left-0 right-0 z-50 shadow-md w-full px-96">
+    <NavigationMenu viewport={false} className="py-4  fixed top-0 left-0 right-0 z-50 shadow-md w-full px-96">
       <NavigationMenuList >
         <NavigationMenuItem className="mr-4">
           <NavigationMenuTrigger>Home</NavigationMenuTrigger>

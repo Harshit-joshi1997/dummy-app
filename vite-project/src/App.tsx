@@ -1,7 +1,8 @@
 
 import './App.css'
 import { Navbar } from './components/Navbar'
-import Poster from './components/poster'
+import Poster from './components/Poster'
+import Items from './components/Items'
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <Navbar/>
         <main className="pt-16"> {/* Adjust pt-16 based on navbar height */}
         <Poster/>
-        {/* Add more content here if needed */}
+        <Items/>
       </main>
     </div>
 

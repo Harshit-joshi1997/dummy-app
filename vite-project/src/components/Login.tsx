@@ -13,22 +13,26 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Mail, Lock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shake, setShake] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setShake(true);
+    // Mock API call
     setTimeout(() => {
       setShake(false);
       setIsSubmitting(false);
       console.log("Login submitted:", { email, password });
+      // On successful login, navigate to the dashboard
+      navigate("/dashboard");
     }, 1500);
   };
 
@@ -103,7 +107,6 @@ export default function Login() {
                   transition={{ duration: 0.3 }}
                 >
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                   <Link to="/dashboard">
                     <Button
                       type="submit"
                       className="w-full"
@@ -123,7 +126,6 @@ export default function Login() {
                       ) : null}
                       {isSubmitting ? "Signing In..." : "Sign In"}
                     </Button>
-                    </Link>
                   </motion.div>
                 </motion.div>
               </form>
@@ -140,9 +142,3 @@ export default function Login() {
     </div>
   );
 }
-
-
-
-
-
-
